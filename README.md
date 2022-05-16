@@ -61,6 +61,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+Closure is a way to combo if statements
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,8 +83,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+ The return function is the closure because its the inner function
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+'Dan rolled a' will always remain the same. the number will vary due to 'Math.random'
 c. What is the lexical scope of `newRoll`? 
+(Guess) The return function.
 
 
 ### Task 3 - Stretch Goals
@@ -99,6 +103,26 @@ var addSix = createBase(6);
 addSix(10); // returns 16
 addSix(21); // returns 27
 ```
+function addSix(number){
+  
+    const math = number + 6;
+    
+    function equation(){
+      
+        return math ;
+ 
+    }
+  
+    return equation();
+}
+
+const addSix1 = addSix(10);
+const addSix2 = addSix(21);
+
+console.log(addSix1);
+console.log(addSix2);
+
+
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
 
