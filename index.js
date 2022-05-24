@@ -30,11 +30,17 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  //Counter1's let variable is function scope while counter2's let variable is global scope
   
   2. Which of the two uses a closure? How can you tell?
+     //I can tell counter1 uses closure because it's function within the function
+
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+    //Counter 1 would be more prefferable if you wanted to use the let variable specfically for that function. Counter2 would be the better choice if you
+    want to grab the let variable from anything within the program
+
 */
 
 // counter1 code
@@ -64,9 +70,12 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+let point = [0, 1, 2]
+function inning(){
+    return Math.floor(Math.random() * point.length);
 }
+
+console.log(inning());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -83,9 +92,39 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+// let point = [0, 1, 2]
+// function inning(){
+//     return Math.floor(Math.random() * point.length);
+// }
+
+// console.log(inning());
+
+function finalScore(p1, p2){
+  let scoreArr = {
+    'Home' : 0,
+    'Away' : 0,
+  }
+  function getRandomKey(scoreArr){
+    let base = Object.keys(scoreArr);
+    return base[Math.floor(Math.random() * scoreArr.lenght)]
+  }
+  
+  for (let i = 0; i < p2; i++){
+    if (getRandomKey === 'Home'){
+      console.log(scoreArr.Home + p1)
+    }
+    else if(getRandomKey === 'Away'){
+      console.log(scoreArr.Away + p1)
+    }
+  }
+return scoreArr;
+
 }
+
+console.log(finalScore(inning(), 9));
+
+
+
 
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -101,11 +140,27 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(p1) {
+  let scoreArra = {
+    'Home' : 0,
+    'Away' : 0,
+  }
 
+  function getRandomKey(){
+    let base = Object.keys(scoreArra);
+    return base[Math.floor(Math.random() * scoreArra.lenght)];
+  }
+  
+  
+  if (getRandomKey() === 'Home'){
+    scoreArra.Home + p1, scoreArra.Away + 0
+  }
+  else if (getRandomKey() === 'Away'){
+    scoreArra.Home + 0, scoreArra.Away + p1
+  }
+ return scoreArra;
 }
-
+console.log(getInningScore(inning()));
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
