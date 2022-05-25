@@ -92,36 +92,38 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-// let point = [0, 1, 2]
-// function inning(){
-//     return Math.floor(Math.random() * point.length);
-// }
-
-// console.log(inning());
-
 function finalScore(p1, p2){
   let scoreArr = {
     'Home' : 0,
-    'Away' : 0,
+    'Away' : 0
   }
-  function getRandomKey(scoreArr){
+  function getRandomKey(){
     let base = Object.keys(scoreArr);
-    return base[Math.floor(Math.random() * scoreArr.lenght)]
+    return base[Math.floor(Math.random() * base.length)];
   }
   
   for (let i = 0; i < p2; i++){
-    if (getRandomKey === 'Home'){
-      console.log(scoreArr.Home + p1)
+
+    let solve = getRandomKey();
+
+    if (solve === 'Home'){
+      console.log('random key is home');  
+      scoreArr.Home = scoreArr.Home + p1()
     }
-    else if(getRandomKey === 'Away'){
-      console.log(scoreArr.Away + p1)
+    else if(solve === 'Away'){
+      console.log('random key is away'); 
+       scoreArr.Away = scoreArr.Away + p1()
     }
+    else {
+      console.log('no key')
+    
   }
+}
 return scoreArr;
 
 }
 
-console.log(finalScore(inning(), 9));
+console.log(finalScore(inning, 9));
 
 
 
@@ -141,26 +143,33 @@ For example: invoking getInningScore(inning) might return this object:
 
 
 function getInningScore(p1) {
-  let scoreArra = {
+  let scoreArr = {
     'Home' : 0,
     'Away' : 0,
   }
 
   function getRandomKey(){
-    let base = Object.keys(scoreArra);
-    return base[Math.floor(Math.random() * scoreArra.lenght)];
+    let base = Object.keys(scoreArr);
+    return base[Math.floor(Math.random() * base.length)];
   }
   
-  
-  if (getRandomKey() === 'Home'){
-    scoreArra.Home + p1, scoreArra.Away + 0
+  for (let i = 0; i < 1; i++){
+    
+    let solve = getRandomKey();
+
+    if (solve === 'Home'){
+      scoreArr.Home = scoreArr.Home + p1()
+    }
+    else if(solve === 'Away'){
+       scoreArr.Away = scoreArr.Away + p1()
+    }
   }
-  else if (getRandomKey() === 'Away'){
-    scoreArra.Home + 0, scoreArra.Away + p1
-  }
- return scoreArra;
+
+return scoreArr;
 }
-console.log(getInningScore(inning()));
+
+
+  console.log(getInningScore(inning));
 
 /* STRETCH: ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
